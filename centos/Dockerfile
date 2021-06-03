@@ -1,0 +1,3 @@
+FROM centos:7
+
+RUN yum install -y wget && mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup && wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo && wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo && yum clean all && yum makecache && yum update -y && yum install -y zip unzip tree rsync curl-devel expat-devel gettext-devel openssl-devel zlib-devel git-core cronie.x86_64 && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo 'alias ll="ls -l"' >> /root/.bash_profile && echo 'alias lh="ls -lh"' >> /root/.bash_profile &&  echo 'alias la="ls -la"' >> /root/.bash_profile
